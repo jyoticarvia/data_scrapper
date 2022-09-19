@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,14 +20,19 @@ import java.util.Map;
     public void  testgujrathomestay() {
 //        Map<String, String> scrapData = new HashMap<>();
         WebDriver driver=new ChromeDriver();
+
         driver.get("https://www.gujarattourism.com/accommodation/homestay.html");
 
        int total =  driver.findElements(By.xpath("/html/body/div/div/div[2]/div/div[10]/div/div[2]/div")).size();
+        List<WebElement> totalCards = driver.findElements(By.xpath("/html/body/div/div/div[2]/div/div[10]/div/div[2]/div"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-
-        for (int i=0; i<=total; i++) {
-
-
+        List weburl = new ArrayList();
+        for (int i=0; i<=totalCards.size(); i++) {
+            WebElement webElement = totalCards.get(i);
+            String href = webElement.findElement(By.xpath("div/a")).getAttribute("href");
+            System.out.println(href);
+            weburl.add(href);
+            System.out.println(webElement);
         }
 
 
@@ -53,23 +59,5 @@ import java.util.Map;
 //        }
 //        scrapData.forEach((s, s2) -> System.out.println(s+": \t"+s2));
     }
-
-       @Test
-       public void ahmedabadhomestay (){
-
-           WebDriver driver=new ChromeDriver();
-           driver.get("https://www.gujarattourism.com/accommodation/homestay.html");
-           driver.findElement(By.xpath("//img[@src=\"/content/dam/gujrattourism/images/hoestay/mr-sanjay-jayantilal-shah/b.jpg\"]")).click();
-
-       }
-
-
-       @Test
-       public void homestay() {
-           WebDriver driver = new ChromeDriver();
-           driver.get("https://www.gujarattourism.com/accommodation/homestay.html");
-           driver.findElement(By.xpath("//img[@src=\"/content/dam/gujrattourism/images/accomodation/homestay/pankajbhai-vallabhbhai-patel/b.jpg\"]")).click();
-       }
-
    }
 
