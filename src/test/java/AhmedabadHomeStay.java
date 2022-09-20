@@ -16,10 +16,10 @@ import java.util.List;
 import java.util.Map;
 
 
-   public class AhmedabadHomeStay {
+    class AhmedabadHomeStay {
 
     @Test
-    public void  testgujrathomestay() {
+    void  testgujrathomestay() {
         WebDriver driver=new ChromeDriver();
         driver.get("https://www.gujarattourism.com/accommodation/homestay.html");
 
@@ -58,7 +58,7 @@ import java.util.Map;
         } catch (ArrayIndexOutOfBoundsException aox) {
             System.out.println("Error: "+ aox.getMessage());
         }
-        driver.close();
+       // driver.close();
         ScrapData scrapData = new ScrapData();
         scrapData.setParams(params);
         return scrapData;
