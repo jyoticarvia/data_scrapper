@@ -36,6 +36,7 @@ import java.util.Map;
         ScrapDataCsv.createCsv(homestays, new GujratTourismDataFormatter());
 
         System.out.println("Data fetched for: "+ homestays.size()+"/"+totalCards.size());
+        System.out.println("Data fetched for: "+ homestays.size()+"/"+totalCards.size());
     }
 
     private ScrapData fetchBusinessDetails(WebDriver driver) {
